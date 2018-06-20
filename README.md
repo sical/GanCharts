@@ -2,8 +2,8 @@
 =====
 Project description
 -----
-The directory allows from an image database containing 3 different classes to drive a GAN network model and generate images based on the same style by the trained model./
-From a database containing 3 image classes of any size and format, each image is resized to size 256x256 and converted to JPG. And then the contours are extracted as a black and white image. In the end, we combine them like the training data set and the test./
+The directory allows from an image database containing 3 different classes to drive a GAN network model and generate images based on the same style by the trained model.
+From a database containing 3 image classes of any size and format, each image is resized to size 256x256 and converted to JPG. And then the contours are extracted as a black and white image. In the end, we combine them like the training data set and the test.
 We put 4 files in this directory:
 
 
