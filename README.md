@@ -1,51 +1,44 @@
 ﻿VizTransfert
 =====
-Le projet
+Project description
 -----
-Ce répertoire permet à partir d'une base de données d'images contenant 3 classes différentes d'entraîner un modèle de réseaux de GAN et de générer les images sur la base de la même style par le modèle entraînée.\
-À partir d'une base de données contenant 3 classes d'images de tailles et de formats quelconques, on redimensionne chaque image à la taille 256x256 et on convertit en JPG. Et puis, on extrait les contours sous forme de image noir et blanc. En fin, on les combine comme le jeu de données d’entraîner et du test.\
-On a mis 4 dossiers dans ce répertoire :
+The directory allows from an image database containing 3 different classes to drive a GAN network model and generate images based on the same style by the trained model./
+From a database containing 3 image classes of any size and format, each image is resized to size 256x256 and converted to JPG. And then the contours are extracted as a black and white image. In the end, we combine them like the training data set and the test./
+We put 4 files in this directory:
 
-•/google_pictures contient 3 types des images concernées(bar chart,line chart et scatter plot) obtenu par git googlescrapper.
 
-•/data/dst contient 3 dossiers de images traitées de bar chart, pour entraîner le réseau de GAN, et puis tester le modèle finale.
 
-•/pix2pix-master est ce que https://github.com/phillipi/pix2pix contient ecrit en lua.
+•/google_pictures contains 3 types of images (bar chart,line chart et scatter plot).
 
-•/pytorch-CycleGAN-and-pix2pix est ce que https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix contient ecrit en python.
+•/data/dst contains 3 directories of images ready to be used as training data for the GAN model.
 
-•/résultat contient les résultats obtenus à la base du jeu de donnée.
+•/pix2pix-master is a forked repo from https://github.com/phillipi/pix2pix written in lua.
+
+•/pytorch-CycleGAN-and-pix2pix is a forked repo from https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix written in python.
+
+•/résultat contains observed results.
 		
-À partir du dossier /data, on répartir nos images. Celui-ci sera lu pour entraîner le réseau de neurones. À la fin de l'entraînement, qui peut être plus ou moins long suivant les paramètres que vous avez choisi, le modèle est enregistré.
-Il est ensuite utilisé automatiquement sur le dossier /test crée ultérieurement et en créeant un dossier results. Dans son sous-dossier latest_net_G_val, vous pouvez voir les résultats dans le web index.html.
-Comme chaque variable intermédiaire est enregistrée (modèle GAN entraîné), il est possible de les réutiliser à génerer des images sans réaliser toutes les étapes.
+From the /data folder, we distribute our images. This will be read to drive the neural network. At the end of the training, which can be longer or shorter depending on the parameters you have chosen, the model is saved.
+It is then used automatically on the folder/test created later and creating a results folder. In its subfolder latest_net_G_val, you can see the results in the web index.html.
+As each intermediate variable is recorded (driven GAN model), it is possible to reuse them to generate images without performing all the steps.
 
-Lancement
---------
 
-Scrapping
+Image processing
 --------
-Nous utiliserons le script issu du git image-scrapers afin de peupler notre base de données. Celui-ci permet de récupérer des images issues de google. Les images va être mis dans le fichier dataset/google.
-
-Traitement d'image
---------
-Afin d'installer l'ensemble des packages nécessaires au fonctionnement du script, exécuter construire.py pour changer la taille des images, extraire les contours sous forme d’image blanc et noir et combiner les pairs des images originales et les images de contour dans une series de images. Il s'agit de créér un dossier /data/src. Le dossier src doit contenir ses propres sous-dossiers train, val, test, etc. Mettre les images originales dans /data/src/train, /data/src/val et /data/src/test. Et puis executer la commande ci-dessous:
+In order to install all the packages needed to run the script, run construct.py to change the image size, extract the outline as a black and white image and combine the original image pairs and outline images into a series of images. This is to create a /data/src folder. The src folder must contain its own train, val, test, etc. subfolders. Put the original images in /data/src/train, /data/src/val and /data/src/test. And then execute the command below:
 
 `python construire.py --fold_src data\src --fold_dst data\dst`
 
-Après l'exécution du script, 3 fichiers "test", “train” et “val” sont créés dans data\dst. Celui-ci contient le jeu de donnée de taille 256x128 pour une paire des images pour être entraîné et testé. 
-En fin, on suit le lancement de git pix2pix à obtenir le résultat.
+After the script is executed, 3 "test", "train" and "val" files are created in data\dst. This contains the data set size 256x128 for a pair of images to be trained and tested. 
+Finally, we follow the launch of git pix2pix to get the result.
 
 
 
-Pix2Pix
---------
-Suivi l'implementation de README.md dans le fichier pix2pix-master(lua) ou celle dans le fichier pytorch-CycleGAN-and-pix2pix(python).
-
-
-
-Auteurs
+Autors
 -------------
+		Théo Jaunet
+		Romain Vuillemot
+	with help from :
 		LIU Xiang
 		He Yitong
 
