@@ -20,7 +20,7 @@ We put 4 files in this directory:
 		
 From the /data folder, we distribute our images. This will be read to drive the neural network. At the end of the training, which can be longer or shorter depending on the parameters you have chosen, the model is saved.
 It is then used automatically on the folder/test created later and creating a results folder. In its subfolder latest_net_G_val, you can see the results in the web index.html.
-As each intermediate variable is recorded (driven GAN model), it is possible to reuse them to generate images without performing all the steps.
+As each intermediate variable is recorded (trained GAN model), it is possible to reuse them to generate images without performing all the steps.
 
 
 Image processing
