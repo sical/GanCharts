@@ -34,7 +34,7 @@ Finally, we follow the launch of git pix2pix to get the result.
 
 
 
-Autors
+Authors
 -------------
 		Théo Jaunet
 		Romain Vuillemot
